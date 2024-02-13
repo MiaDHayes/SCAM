@@ -15,18 +15,18 @@ app.listen(PORT, () => {
 })
 
 // Create
-app.post('/products', productController.)
-app.post('/sets', productController.)
+// app.post('/products', productController.)
+// app.post('/sets', productController.)
 
-// Read 
-app.get('/products', productController.)
-app.get('/sets', productController.)
-app.get('/products/name/:name', productController.)
+// // Read 
+app.get('/products', productController.getAllProducts)
+app.get('/sets', setController.getAllSets)
+// app.get('/products/name/:name', productController.)
 
-// Update
-app.put('/products/:id', productController.)
-app.put('/sets/:id', productController.)
+// // Update
+// app.put('/products/:id', productController.)
+// app.put('/sets/:id', setController.)
 
-// Delete
-app.delete('/products/:id', productController.)
-app.delete('/sets/:id', productController.)
+// // Delete
+// app.delete('/products/:id', productController.)
+// app.delete('/sets/:id', setController.)
