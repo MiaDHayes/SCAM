@@ -14,19 +14,16 @@
 //   console.log(`Server is running on port ${PORT}`)
 // })
 
-// // Create
-// app.post('/products', productController.)
-// app.post('/sets', productController.)
+// Create
 
-// // Read 
-// app.get('/products', productController.)
-// app.get('/sets', productController.)
-// app.get('/products/name/:name', productController.)
+// // Read
+app.get('/products', productController.getAllProducts)
+app.get('/sets', setController.getAllSets)
 
 // // Update
 // app.put('/products/:id', productController.)
-// app.put('/sets/:id', productController.)
+// app.put('/sets/:id', setController.)
 
 // // Delete
 // app.delete('/products/:id', productController.)
-// app.delete('/sets/:id', productController.)
+// app.delete('/sets/:id', setController.)
