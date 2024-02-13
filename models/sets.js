@@ -7,8 +7,8 @@ const Set = new Schema({
     type: {type: String, required: true},
     colours: [{type: Array, required: true}],
     price: {type: Number, required: true},
-    use: {type: String, required: false},
-    care: {type: String, required: false},
+    use: [{type: String, required: false}],
+    care: [{type: String, required: false}],
     brand: {type: String, required: true},
     picture: {type: String, required: true}
 })
