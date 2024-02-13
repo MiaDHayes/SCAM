@@ -2,7 +2,7 @@ const {Schema} = require('mongoose')
 
 const Set = new Schema({
     set: {type: String, required: true},
-    quantity: {type: String, required: true},
+    quantity: {type: Number, required: true},
     summary: {type: String, required: true},
     type: {type: String, required: true},
     colours: [{type: Array, required: true}],
@@ -11,6 +11,7 @@ const Set = new Schema({
     care: [{type: String, required: false}],
     brand: {type: String, required: true},
     picture: {type: String, required: true}
-})
+},
+{timestamps: true})
 
 module.exports = Set
