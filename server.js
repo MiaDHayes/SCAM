@@ -1,18 +1,18 @@
-// const express = require('express')
-// const mongoose = require('mongoose')
-// const setController = require('./controllers/sets')
-// const productController = require('./controllers/products')
+const express = require('express')
+const mongoose = require('mongoose')
+const setController = require('./controllers/sets')
+const productController = require('./controllers/products')
 
-// const db = require('./db')
+const db = require('./db')
 
-// const app = express()
-// const PORT = process.env.PORT || 3001
+const app = express()
+const PORT = process.env.PORT || 3001
 
-// app.use(express.json())
+app.use(express.json())
 
-// app.listen(PORT, () => {
-//   console.log(`Server is running on port ${PORT}`)
-// })
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`)
+})
 
 // Create
 
