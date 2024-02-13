@@ -1,7 +1,9 @@
 const mongoose = require('mongoose')
 
+const pw = config.pw
+
 mongoose
-    .connect('mongodb://127.0.0.1:27017/scamDatabase')
+    .connect(`mongodb+srv://${pw}@scam.gyowh0t.mongodb.net/scam?retryWrites=true&w=majority`)
     .then(() => {
         console.log('Successfully connected to MongoDB')
     })
