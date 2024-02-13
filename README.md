@@ -15,10 +15,19 @@ Here are the features consumers will be able to use on our website.
 
 ## Getting started
 
+![Here is our ERD model] 
+(https://app.diagrams.net/#G115_Hh3xowamm-qn7gxQiFWXLxnMA99JG)
+
 
  
 
 ## Source and Credits
+
+### Websites
+
+### Projects 
+
+### People
 
 
 
