@@ -3,28 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Search</title>
     <link rel="stylesheet" href="style.css">
-    <title>SCAM App</title>
 </head>
 <body>
-    <header>
-        <h1>SCAM</h1>
-    </header>
-    <h2>Pots and Pans</h2>
-    <form>
-        <input type="text"  value="" placeholder="Search..."  id="inputBar">
-        <input type="button"  value= "Search" id="searchButton">
-        
-    </form>
-    <div class= "Container">
-        <div id= "app">
-        <button id= "kitchenAidButton">Kitchen Aid</button>
-        <button id= "cuisinartButton">Cuisinart</button>
-        <button id= "ourPlace">Our Place</button>
-        <button id= "leCreuset">Le Creuset</button>
+    <div class="container">
+        <h1>Product Search</h1>
+        <!-- Button container -->
+        <div class="button-container">
+            <button id="kitchenAidButton">Kitchen Aid</button>
+            <button id="cuisinartButton">Cuisinart</button>
+            <button id="ourPlaceButton">Our Place</button>
+            <button id="leCreusetButton">Le Creuset</button>
+        </div>
+        <!-- Search bar and results -->
+        <div id="searchBox">
+            <input type="text" id="searchInput" placeholder="Search products...">
+            <button id="searchButton">Search</button>
+            <div id="searchResults"></div>
         </div>
     </div>
-    
     <script src="script.js"></script>
 </body>
 </html>
