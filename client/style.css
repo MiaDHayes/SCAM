@@ -1,0 +1,34 @@
+body {
+    font-family: ;
+    margin: 0;
+    padding: 0;
+    background:linear-gradient(to right, #cdffd8, #94b9ff);
+   
+    
+}
+
+header {
+    padding: 20px;
+    background:linear-gradient(to right, #cdffd8, #94b9ff);
+    text-align: center;
+    background: url(Backgrounds.png);
+    
+}
+
+h1{
+
+    font-family: "Macondo", cursive;
+    color: black;
+    font-size: 72px;
+    text-align: center;
+    letter-spacing: 2em;
+
+}
+
+h2 {
+    font-family: 'Sansita Swashed', system-ui;
+    color: black;
+    font-size: 48px;
+    text-align: center;
+
+}
