@@ -5,6 +5,7 @@ const Product = new Schema({
     dimensions: {type: String, required: true},
     set: {type: Schema.Types.ObjectId, ref: 'Set'},
     picture: {type: String, required: true}
-})
+},
+{timestamps: true})
 
 module.exports = Product

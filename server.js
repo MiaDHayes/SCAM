@@ -19,6 +19,7 @@ app.listen(PORT, () => {
 // // Read
 app.get('/products', productController.getAllProducts)
 app.get('/sets', setController.getAllSets)
+app.get('/sets/name/:name', setController.getSetDetails)
 
 // // Update
 // app.put('/products/:id', productController.)
