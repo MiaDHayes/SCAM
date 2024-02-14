@@ -59,6 +59,7 @@ h2 {
    align-items: center;
    font-size: 26px;
    color: black;
+   cursor: pointer;
 }
 
 .container{
@@ -91,7 +92,8 @@ h2 {
    justify-content: center;
    align-items: center;
    font-size: 20px;
-   color:black;   
+   color:black;
+   cursor: pointer;
 }
 
 #greepanButton{
@@ -106,6 +108,7 @@ h2 {
     align-items: center;
     font-size: 20px;
     color:black;    
+    cursor: pointer;
 }
 
 #allcladButton {
@@ -120,6 +123,7 @@ h2 {
     align-items: center;
     font-size: 20px;
     color:black;   
+    cursor: pointer;
 }
 
 #zwillingButton {
@@ -134,6 +138,6 @@ h2 {
     justify-content: center;
     align-items: center;
     font-size: 20px;
-    color:black;   
-
+    color:black;
+    cursor: pointer;
 }

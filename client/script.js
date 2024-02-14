@@ -1,9 +1,10 @@
-const ruffiniButton = document.getElementById('ruffiniButton')
+const ruffoniButton = document.getElementById('ruffoniButton')
 const mauvielButton = document.getElementById('mauvielButton')
 const greenpanButton = document.getElementById('greenpanButton')
-const allCladButton = document.getElementById('allCladButton')
-const searchInput = document.getElementById('searchInput')
-const searchResults = document.getElementById('searchResults')
+const allCladButton = document.getElementById('allcladButton')
+const zwillingButton = document.getElementById('zwillingButton')
+const searchInput = document.getElementById('inputBar')
+//const searchResults = document.getElementById('searchResults')
 const searchButton = document.getElementById('searchButton')
 
 
@@ -26,17 +27,6 @@ const performSearch = async (query) => {
     }
 }
 
-//Grab Products
-const getProduct = async () => {
-    try {
-        const products = await axios.get(`https://localhost:3001/products/${searchInput.value}`)
-        console.log(products.data.results)
-    } catch (error) {
-        console.error('Error fetching products ;c :', error)
-    }
-}
-
-
 //Event Listener Function
 searchButton.addEventListener('click', async (event) => {
     event.preventDefault()
@@ -48,39 +38,77 @@ searchButton.addEventListener('click', async (event) => {
     }
 })
 
-
-// const searchInput = document.getElementById('searchInput')
-
-// searchInput.addEventListener('submit', async (event) => {
-//     event.preventDefault()
-//     const 
-// })
+//Grab Products
+const getProduct = async () => {
+    try {
+        const products = await axios.get(`https://localhost:3001/products/${searchInput.value}`)
+        console.log(products.data.results)
+    } catch (error) {
+        console.error('Error fetching products ;c :', error)
+    }
+}
 //
-ruffiniButton.addEventListener('click', async (event) => {
-    event.preventDefault()
-    
-})
 
+const fetchBrandData = async (brandName) => {
+    try {
+        const response = await axios.get(`https://localhost:3001/brands/${brandName}`)
+        return response.data
+    } catch (error) {
+        console.error(`Error fetching data for ${brandName}:`, error)
+        return null
+    }
+}
+
+const displayBrandData = (brandData) => {
+    if (brandData) {
+        console.log('Brand Data:', brandData)
+    } else {
+        console.log('No data avaliable for this brand.')
+    }
+}
 
 
 //Event Listeners for Brands
-ruffiniButton.addEventListener('click', () => {
-    performSearch('Ruffini');
+ruffoniButton.addEventListener('click', async () => {
+    const brandName = 'Ruffoni'
+    const brandData = await fetchBrandData(brandName)
+    displayBrandData(brandData)
 })
 
-mauvielButton.addEventListener('click', () => {
-    performSearch('Mauviel');
+mauvielButton.addEventListener('click', async () => {
+    const brandName = 'Mauviel'
+    const brandData = await fetchBrandData(brandName)
+    displayBrandData(brandData)
 })
 
-greenpanButton.addEventListener('click', () => {
-    performSearch('GreenPan');
+greenpanButton.addEventListener('click', async () => {
+    const brandName = 'GreenPan'
+    const brandData = await fetchBrandData(brandName)
+    displayBrandData(brandData)
 })
 
-allCladButton.addEventListener('click', () => {
-    performSearch('All-Clad');
+allCladButton.addEventListener('click', async () => {
+    const brandName = 'All-Clad'
+    const brandData = await fetchBrandData(brandName)
+    displayBrandData(brandData)
+})
+
+zwillingButton.addEventListener('click', async () => {
+    const brandName = 'Zwilling'
+    const brandData = await fetchBrandData(brandName)
+    displayBrandData(brandData)
 })
 
 //
+
+
+
+
+
+
+
+
+
 //Grab Sets
 const getSet = async () => {
     try {
@@ -90,3 +118,4 @@ const getSet = async () => {
         console.error('Error fetching sets ;c :', error)
     }
 }
+
