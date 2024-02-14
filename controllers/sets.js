@@ -38,15 +38,15 @@ const getAllSets = async (req, res) => {
 const getSetDetails = async (req, res) => {
   try {
     const { name } = req.params
-    const regex = new RegExp(name, 'i') // flags for case-insensitive
+    const regex = new RegExp(name, 'i')
     const set = await Set.findOne({ set: {$regex: regex} })
-
+    
     if (!set) {
       return res.status(404).json({ message: 'Sets not found' })
     }
-    // attaches reviews and actors to the result when displayed
+    
     const products = await Product.find({ set: set._id })
-
+    
     const setDetails = {
       set,
       products
