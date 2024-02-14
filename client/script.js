@@ -28,37 +28,45 @@ const performSearch = async (query) => {
 
 //Grab Products
 const getProduct = async () => {
-    const products = await axios.get(`https://localhost:3001/products`)
+    const products = await axios.get(`https://localhost:3001/products/${searchInput.value}`)
     console.log(products.data.results)
 }
 
 
 //Event Listener Function
 searchButton.addEventListener('click', async (event) => {
-    event.preventDefault(); // Prevent the default form submission behavior
-    const query = searchInput.value.trim(); // Get the search query from the input bar
+    event.preventDefault()
+    const query = searchInput.value.trim() // Get the search query from the input bar
     if (query !== '') {
-        performSearch(query); // Perform the search
+        performSearch(query)
     } else {
-        alert('Please enter a search query.');
+        alert('Please enter a search query.')
     }
 })
 
+//
+ruffiniButton.addEventListener('click', async (event) => {
+    event.preventDefault()
+    
+})
+
+
+
 //Event Listeners for Brands
 ruffiniButton.addEventListener('click', () => {
-    performSearch('Kitchen Aid');
+    performSearch('Ruffini');
 })
 
 mauvielButton.addEventListener('click', () => {
-    performSearch('Cuisinart');
+    performSearch('Mauviel');
 })
 
 greenpanButton.addEventListener('click', () => {
-    performSearch('Our Place');
+    performSearch('GreenPan');
 })
 
 allCladButton.addEventListener('click', () => {
-    performSearch('Le Creuset');
+    performSearch('All-Clad');
 })
 
 //
