@@ -1,10 +1,10 @@
-const kitchenAidButton = document.getElementById('kitchenAidButton')
-const cuisinartButton = document.getElementById('cuisinartButton')
-const ourPlaceButton = document.getElementById('ourPlaceButton')
-const leCreusetButton = document.getElementById('leCreusetButton')
+const ruffiniButton = document.getElementById('ruffiniButton')
+const mauvielButton = document.getElementById('mauvielButton')
+const greenpanButton = document.getElementById('greenpanButton')
+const allCladButton = document.getElementById('allCladButton')
 const searchInput = document.getElementById('searchInput')
 const searchResults = document.getElementById('searchResults')
-// const searchButton = document.getElementById('searchButton')
+const searchButton = document.getElementById('searchButton')
 
 
 const BASE_URL = 'http://localhost:3001/'
@@ -17,7 +17,7 @@ const performSearch = async (query) => {
             params: {
                 query: query
             }
-        });
+        })
         const products = response.data.results
         console.log(products)
         // Handle displaying the products in your UI
@@ -26,10 +26,17 @@ const performSearch = async (query) => {
     }
 }
 
+//Grab Products
+const getProduct = async () => {
+    const products = await axios.get(`https://localhost:3001/products`)
+    console.log(products.data.results)
+}
+
+
 //Event Listener Function
 searchButton.addEventListener('click', async (event) => {
     event.preventDefault(); // Prevent the default form submission behavior
-    const query = inputBar.value.trim(); // Get the search query from the input bar
+    const query = searchInput.value.trim(); // Get the search query from the input bar
     if (query !== '') {
         performSearch(query); // Perform the search
     } else {
@@ -38,33 +45,25 @@ searchButton.addEventListener('click', async (event) => {
 })
 
 //Event Listeners for Brands
-kitchenAidButton.addEventListener('click', () => {
+ruffiniButton.addEventListener('click', () => {
     performSearch('Kitchen Aid');
 })
 
-cuisinartButton.addEventListener('click', () => {
+mauvielButton.addEventListener('click', () => {
     performSearch('Cuisinart');
 })
 
-ourPlaceButton.addEventListener('click', () => {
+greenpanButton.addEventListener('click', () => {
     performSearch('Our Place');
 })
 
-leCreusetButton.addEventListener('click', () => {
+allCladButton.addEventListener('click', () => {
     performSearch('Le Creuset');
 })
 
-
-
-
-
-
-// const getProduct = async () => {
-//     const products = await axios.get(`https://localhost:3001/products`)
-//     console.log(products.data.results)
-// }
-
-// button.addEventListener('click', async (event) => {
-//     event.preventDefault()
-//     let textInput = inputBar.value
-// })
+//
+//Grab Sets
+const getSet = async () => {
+    const sets = await axios.get(`https://localhost:3001/products`)
+    console.log(sets.data.results)
+}
