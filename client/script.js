@@ -28,8 +28,12 @@ const performSearch = async (query) => {
 
 //Grab Products
 const getProduct = async () => {
-    const products = await axios.get(`https://localhost:3001/products/${searchInput.value}`)
-    console.log(products.data.results)
+    try {
+        const products = await axios.get(`https://localhost:3001/products/${searchInput.value}`)
+        console.log(products.data.results)
+    } catch (error) {
+        console.error('Error fetching products ;c :', error)
+    }
 }
 
 
@@ -44,6 +48,13 @@ searchButton.addEventListener('click', async (event) => {
     }
 })
 
+
+// const searchInput = document.getElementById('searchInput')
+
+// searchInput.addEventListener('submit', async (event) => {
+//     event.preventDefault()
+//     const 
+// })
 //
 ruffiniButton.addEventListener('click', async (event) => {
     event.preventDefault()
@@ -72,6 +83,10 @@ allCladButton.addEventListener('click', () => {
 //
 //Grab Sets
 const getSet = async () => {
-    const sets = await axios.get(`https://localhost:3001/products`)
-    console.log(sets.data.results)
+    try {
+        const sets = await axios.get(`https://localhost:3001/products`)
+        console.log(sets.data.results)
+    } catch (error) {
+        console.error('Error fetching sets ;c :', error)
+    }
 }
