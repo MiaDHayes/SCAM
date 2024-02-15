@@ -21,7 +21,8 @@ app.post('/product', productController.createProduct)
 // // Read
 app.get('/products', productController.getAllProducts)
 app.get('/sets', setController.getAllSets)
-app.get('/sets/name/:name', setController.getSetDetails)
+// app.get('/sets/name/:name', setController.getSetDetails)
+app.get('/sets/name/:brand', setController.getBrandName)
 
 // // Update
 app.put('/products/:id', productController.updateProduct)
