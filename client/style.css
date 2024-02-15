@@ -67,7 +67,7 @@ h2 {
     justify-content: center, space-evenly;
 }
 
-#kruffiniButton {
+#ruffoniButton {
    width: 150px;
    height: 40px;
    overflow: auto;
@@ -79,6 +79,7 @@ h2 {
    align-items: center;
    font-size: 20px;
    color:black;
+   cursor: pointer;
 }
 
 #mauvielButton {
