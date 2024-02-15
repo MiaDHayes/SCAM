@@ -1,35 +1,39 @@
 body {
-    margin: 0;
-    padding: 0;
-    background:linear-gradient(to right, #cdffd8, #94b9ff);
-   
-    
+    margin: 0px, 20px;
+    padding: 0px, 10px;
+    background:linear-gradient(to right, #cdffd8, #94b9ff); 
 }
 
 header {
     padding: 20px;
-    background:linear-gradient(to right, #cdffd8, #94b9ff);
     text-align: center;
-    background: url(Backgrounds.png);
-    
+    background: url(Backgrounds.png);   
 }
 
 h1{
-
     font-family: "Macondo", cursive;
     color: black;
     font-size: 72px;
     text-align: center;
-    letter-spacing: 2em;
-
+    letter-spacing: 1em;
 }
+
+#shopCart {
+    font-size: 40px;
+    color: #333;
+    float: right;
+   
+}    
 
 h2 {
     font-family: 'Sansita Swashed', system-ui;
     color: black;
     font-size: 48px;
     text-align: center;
+    margin: 0;
 }
+
+
 
 #inputBar{
     width: 250px;
@@ -59,6 +63,7 @@ h2 {
    align-items: center;
    font-size: 26px;
    color: black;
+
    cursor: pointer;
 }
 
@@ -68,6 +73,10 @@ h2 {
 }
 
 #ruffoniButton {
+   padding: 0px 0px 20px 0px;
+}
+
+#ruffoniButton, #mauvielButton, #greenpanButton, #allcladButton, #zwillingButton {
    width: 150px;
    height: 40px;
    overflow: auto;
@@ -81,6 +90,7 @@ h2 {
    color:black;
    cursor: pointer;
 }
+
 
 #mauvielButton {
    width: 150px;
@@ -142,3 +152,4 @@ h2 {
     color:black;
     cursor: pointer;
 }
+
