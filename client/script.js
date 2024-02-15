@@ -1,3 +1,4 @@
+
 const ruffoniButton = document.getElementById('ruffoniButton')
 const mauvielButton = document.getElementById('mauvielButton')
 const greenpanButton = document.getElementById('greenpanButton')
@@ -7,8 +8,69 @@ const searchInput = document.getElementById('inputBar')
 //const searchResults = document.getElementById('searchResults')
 const searchButton = document.getElementById('searchButton')
 
-
 const BASE_URL = 'http://localhost:3001/'
+let sets
+
+const getSet = async (input) => {
+    sets = await axios.get(`https://localhost:3001/sets/${input}`)
+    console.log(sets.data.results)
+}
+
+const set= document.querySelectorAll(`.sets`)
+const itemName =document.querySelectorAll("setName")
+const itemQuantity= document.querySelectorAll("itemQuantity")
+const itemSummary = document.querySelectorAll("itemSummary")
+const itemPicture = document.querySelectorAll(`.image`) 
+const itemType = document.querySelectorAll("itemType")
+const itemColours =document.querySelectorAll("itemColours")
+const itemPrice = document.querySelectorAll("itemPrice")
+const itemUse = document.querySelectorAll("itemUse")
+const itemCare = document.querySelectorAll("itemCare")
+const itemBrand = document.querySelectorAll("itemBrand")
+
+
+const appendSets = () => {
+    console.log(setsList)
+    const listItem = document.createElement("li")
+    const itemName = document.createElement("p")
+    const itemPicture = document.createElement("img")
+    const itemQuantity= document.createElement("p")
+    const itemSummary = document.createElement("p") 
+    const itemType = document.createElement("p")
+    const itemColours =ddocument.createElement("p")
+    const itemPrice = ddocument.createElement("p")
+    const itemUse = document.createElement("p")
+    const itemCare = document.createElement("p")
+    const itemBrand = document.createElement("p")
+  
+itemPicture.className ="itemPicture"
+itemName.className ="itemName"
+itemQuantity.className ="itemQUantity"
+itemSummary.className ="itemSummary"
+itemType.className ="itemType"
+itemColours.className ="itemColours"
+itemPrice.className ="itemPrice"
+itemUse.className ="itemUse"
+itemCare.className ="itemCare"
+itemBrand.className ="itemBrand"
+
+
+       
+listItem.appendChild(itemPicture)
+listItem.appendChild(itemName)
+listItem.appendChild(itemQuantity)
+listItem.appendChild(itemSummary)
+listItem.appendChild(itemType)
+listItem.appendChild(itemColours)
+listItem.appendChild(itemPrice)
+listItem.appendChild(itemUse)
+listItem.appendChild(itemCare)
+listItem.appendChild(itemBrand)
+
+setList.appendChild(listItem)
+
+}
+       
 
 
 //Fetch and Search
@@ -38,84 +100,109 @@ searchButton.addEventListener('click', async (event) => {
     }
 })
 
-//Grab Products
-const getProduct = async () => {
-    try {
-        const products = await axios.get(`https://localhost:3001/products/${searchInput.value}`)
-        console.log(products.data.results)
-    } catch (error) {
-        console.error('Error fetching products ;c :', error)
-    }
-}
-//
+// //Grab Products
+// const getProduct = async () => {
+//     try {
+//         const products = await axios.get(`https://localhost:3001/products/${searchInput.value}`)
+//         console.log(products.data.results)
+//     } catch (error) {
+//         console.error('Error fetching products ;c :', error)
+//     }
+// }
+// //
 
-const fetchBrandData = async (brandName) => {
-    try {
-        const response = await axios.get(`https://localhost:3001/brands/${brandName}`)
-        return response.data
-    } catch (error) {
-        console.error(`Error fetching data for ${brandName}:`, error)
-        return null
-    }
-}
+// const fetchBrandData = async (brandName) => {
+//     try {
+//         const response = await axios.get(`https://localhost:3001/brands/${brandName}`)
+//         return response.data
+//     } catch (error) {
+//         console.error(`Error fetching data for ${brandName}:`, error)
+//         return null
+//     }
+// }
 
-const displayBrandData = (brandData) => {
-    if (brandData) {
-        console.log('Brand Data:', brandData)
-    } else {
-        console.log('No data avaliable for this brand.')
-    }
-}
+// const displayBrandData = (brandData) => {
+//     if (brandData) {
+//         console.log('Brand Data:', brandData)
+//     } else {
+//         console.log('No data avaliable for this brand.')
+//     }
+// }
 
 
-//Event Listeners for Brands
-ruffoniButton.addEventListener('click', async () => {
-    const brandName = 'Ruffoni'
-    const brandData = await fetchBrandData(brandName)
-    displayBrandData(brandData)
-})
+// //Event Listeners for Brands
+// ruffoniButton.addEventListener('click', async () => {
+//     const brandName = 'Ruffoni'
+//     const brandData = await fetchBrandData(brandName)
+//     displayBrandData(brandData)
+// })
 
-mauvielButton.addEventListener('click', async () => {
-    const brandName = 'Mauviel'
-    const brandData = await fetchBrandData(brandName)
-    displayBrandData(brandData)
-})
+// mauvielButton.addEventListener('click', async () => {
+//     const brandName = 'Mauviel'
+//     const brandData = await fetchBrandData(brandName)
+//     displayBrandData(brandData)
+// })
 
-greenpanButton.addEventListener('click', async () => {
-    const brandName = 'GreenPan'
-    const brandData = await fetchBrandData(brandName)
-    displayBrandData(brandData)
-})
+// greenpanButton.addEventListener('click', async () => {
+//     const brandName = 'GreenPan'
+//     const brandData = await fetchBrandData(brandName)
+//     displayBrandData(brandData)
+// })
 
-allCladButton.addEventListener('click', async () => {
-    const brandName = 'All-Clad'
-    const brandData = await fetchBrandData(brandName)
-    displayBrandData(brandData)
-})
+// allCladButton.addEventListener('click', async () => {
+//     const brandName = 'All-Clad'
+//     const brandData = await fetchBrandData(brandName)
+//     displayBrandData(brandData)
+// })
+
+// zwillingButton.addEventListener('click', async () => {
+//     const brandName = 'Zwilling'
+//     const brandData = await fetchBrandData(brandName)
+//     displayBrandData(brandData)
+// })
+//Grab Sets
+
 
 zwillingButton.addEventListener('click', async () => {
-    const brandName = 'Zwilling'
-    const brandData = await fetchBrandData(brandName)
-    displayBrandData(brandData)
-})
-
-//
-
-
-
-
-
-
-
-
-
-//Grab Sets
-const getSet = async () => {
-    try {
-        const sets = await axios.get(`https://localhost:3001/products`)
-        console.log(sets.data.results)
-    } catch (error) {
-        console.error('Error fetching sets ;c :', error)
+        // sets.preventDefault();
+        let input = zwillingButton.innerHTML
+        const response = await axios.get(`https://localhost:3001/sets/${input}`);
+        const setDataList = response.data.sets || [];
+        setList.innerHTML = ""
+        
+    for (let i = 0; i < sets.data.length ; i++) {
+            appendSets()
+           
+            itemPicture.src = sets.data.picture
+            itemName.textContent = sets.data.set
+            itemQuantity.textContent = sets.data.quantity
+            itemSummary.textContent = sets.data.summary
+            itemType.textContent = sets.data.type
+            itemBrand.textContent = sets.data.brand
+            itemPrice.textContent =sets.data.price
+            for (let b = 0; b < sets.data.length ; b++) {
+            itemUse.innerHTML += `${sets.data.use[b]}`}
+            for (let b = 0;  b< sets.data.length ; b++) {
+            itemCare.innerHTML +=`${sets.data.care[b]}`}
+            for (let b = 0;  b< sets.data.length ; b++) {
+            itemColours.innerHTML += `${sets.data.colours[b]}`
+            
+        }
     }
 }
+)
+//    setDataList.forEach(sets => {
+//         appendSets(sets)
+        
+        
+//         })});
+        
+//         getSets();
 
+
+// Clear populated data
+const removeChildNodes = (details) => {
+    while (details.firstChild) {
+      details.removeChild(details.firstChild)
+    }
+}
