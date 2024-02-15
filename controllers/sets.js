@@ -60,9 +60,9 @@ const getAllSets = async (req, res) => {
 
 const getBrandName = async (req, res) => {
   try {
-    const { name } = req.params
-    const regex = new RegExp(name, 'i')
-    const set = await Set.findOne({ set: {$regex: regex} })
+    const { brand } = req.params
+    const regex = new RegExp(brand, 'i')
+    const set = await Set.find({ brand: {$regex: regex} })
     
     if (!set) {
       return res.status(404).json({ message: 'Sets not found' })
@@ -72,6 +72,7 @@ const getBrandName = async (req, res) => {
     }
     
     res.json(setByBrand)
+    
   } catch (error) {
     return res.status(500).send(error.message)
   }
