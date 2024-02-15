@@ -19,7 +19,7 @@ Here are the features consumers will be able to use on our website.
 
 ![Here is our ERD model] 
 (file:///Users/ameyokugbe/Downloads/SCAM%20ERD.drawio.svg)
-
+SCAM ERD.drawio.png
 
  
 
