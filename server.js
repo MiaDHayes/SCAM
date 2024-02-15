@@ -1,5 +1,7 @@
 const express = require('express')
 const mongoose = require('mongoose')
+const cors = require('cors')
+const logger = require('morgan')
 const setController = require('./controllers/sets')
 const productController = require('./controllers/products')
 
@@ -9,6 +11,9 @@ const app = express()
 const PORT = process.env.PORT || 3001
 
 app.use(express.json())
+app.use(cors())
+app.use(logger('dev'))
+
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`)
