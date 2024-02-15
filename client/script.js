@@ -1,9 +1,3 @@
-    // const kitchenAidButton = document.getElementById('kitchenAidButton')
-    // const cuisinartButton = document.getElementById('cuisinartButton')
-    // const ourPlaceButton = document.getElementById('ourPlaceButton')
-    // const leCreusetButton = document.getElementById('leCreusetButton')
-
-const searchInput = document.getElementById('searchInput')
 
 const ruffoniButton = document.getElementById('ruffoniButton')
 const mauvielButton = document.getElementById('mauvielButton')
@@ -35,7 +29,7 @@ const itemCare = document.querySelectorAll("itemCare")
 const itemBrand = document.querySelectorAll("itemBrand")
 
 
-const appendSets = (sets) => {
+const appendSets = () => {
     console.log(setsList)
     const listItem = document.createElement("li")
     const itemName = document.createElement("p")
@@ -61,18 +55,8 @@ itemCare.className ="itemCare"
 itemBrand.className ="itemBrand"
 
 
-itemPicture.src = products.data
-itemName.textContent = productsSet.Name
-itemQuantity.textContent =
-itemSummary.textContent =
-itemType.textContent =
-itemColours.textContent =
-itemPrice.textContent =
-itemUse.textContent =
-itemCare.textContent =
-itemBrand.textContent =
        
-listItem.appendChild(itemImage)
+listItem.appendChild(itemPicture)
 listItem.appendChild(itemName)
 listItem.appendChild(itemQuantity)
 listItem.appendChild(itemSummary)
@@ -84,9 +68,9 @@ listItem.appendChild(itemCare)
 listItem.appendChild(itemBrand)
 
 setList.appendChild(listItem)
-       
 
-const BASE_URL = 'http://localhost:3001/'
+}
+       
 
 
 //Fetch and Search
@@ -116,101 +100,104 @@ searchButton.addEventListener('click', async (event) => {
     }
 })
 
-//Grab Products
-const getProduct = async () => {
-    try {
-        const products = await axios.get(`https://localhost:3001/products/${searchInput.value}`)
-        console.log(products.data.results)
-    } catch (error) {
-        console.error('Error fetching products ;c :', error)
-    }
-}
-//
+// //Grab Products
+// const getProduct = async () => {
+//     try {
+//         const products = await axios.get(`https://localhost:3001/products/${searchInput.value}`)
+//         console.log(products.data.results)
+//     } catch (error) {
+//         console.error('Error fetching products ;c :', error)
+//     }
+// }
+// //
 
-const fetchBrandData = async (brandName) => {
-    try {
-        const response = await axios.get(`https://localhost:3001/brands/${brandName}`)
-        return response.data
-    } catch (error) {
-        console.error(`Error fetching data for ${brandName}:`, error)
-        return null
-    }
-}
+// const fetchBrandData = async (brandName) => {
+//     try {
+//         const response = await axios.get(`https://localhost:3001/brands/${brandName}`)
+//         return response.data
+//     } catch (error) {
+//         console.error(`Error fetching data for ${brandName}:`, error)
+//         return null
+//     }
+// }
 
-const displayBrandData = (brandData) => {
-    if (brandData) {
-        console.log('Brand Data:', brandData)
-    } else {
-        console.log('No data avaliable for this brand.')
-    }
-}
+// const displayBrandData = (brandData) => {
+//     if (brandData) {
+//         console.log('Brand Data:', brandData)
+//     } else {
+//         console.log('No data avaliable for this brand.')
+//     }
+// }
 
 
-//Event Listeners for Brands
-ruffoniButton.addEventListener('click', async () => {
-    const brandName = 'Ruffoni'
-    const brandData = await fetchBrandData(brandName)
-    displayBrandData(brandData)
-})
+// //Event Listeners for Brands
+// ruffoniButton.addEventListener('click', async () => {
+//     const brandName = 'Ruffoni'
+//     const brandData = await fetchBrandData(brandName)
+//     displayBrandData(brandData)
+// })
 
-mauvielButton.addEventListener('click', async () => {
-    const brandName = 'Mauviel'
-    const brandData = await fetchBrandData(brandName)
-    displayBrandData(brandData)
-})
+// mauvielButton.addEventListener('click', async () => {
+//     const brandName = 'Mauviel'
+//     const brandData = await fetchBrandData(brandName)
+//     displayBrandData(brandData)
+// })
 
-greenpanButton.addEventListener('click', async () => {
-    const brandName = 'GreenPan'
-    const brandData = await fetchBrandData(brandName)
-    displayBrandData(brandData)
-})
+// greenpanButton.addEventListener('click', async () => {
+//     const brandName = 'GreenPan'
+//     const brandData = await fetchBrandData(brandName)
+//     displayBrandData(brandData)
+// })
 
-allCladButton.addEventListener('click', async () => {
-    const brandName = 'All-Clad'
-    const brandData = await fetchBrandData(brandName)
-    displayBrandData(brandData)
-})
+// allCladButton.addEventListener('click', async () => {
+//     const brandName = 'All-Clad'
+//     const brandData = await fetchBrandData(brandName)
+//     displayBrandData(brandData)
+// })
+
+// zwillingButton.addEventListener('click', async () => {
+//     const brandName = 'Zwilling'
+//     const brandData = await fetchBrandData(brandName)
+//     displayBrandData(brandData)
+// })
+//Grab Sets
+
 
 zwillingButton.addEventListener('click', async () => {
-    const brandName = 'Zwilling'
-    const brandData = await fetchBrandData(brandName)
-    displayBrandData(brandData)
-})
-
-//
-
-
-
-
-
-
-
-
-
-//Grab Sets
-const getSet = async () => {
-    try {
-        const sets = await axios.get(`https://localhost:3001/products`)
-        console.log(sets.data.results)
-    } catch (error) {
-        console.error('Error fetching sets ;c :', error)
-    }
-}
-
-button.addEventListener('ruffoniButton', async (event) => {
-        event.preventDefault();
-        const inputValue = input.value;
-        const response = await axios.get(`https://localhost:3001/products${input}`);
+        // sets.preventDefault();
+        let input = zwillingButton.innerHTML
+        const response = await axios.get(`https://localhost:3001/sets/${input}`);
         const setDataList = response.data.sets || [];
         setList.innerHTML = ""
         
-   setDataList.forEach(set=> {
-        appendSets(sets)
+    for (let i = 0; i < sets.data.length ; i++) {
+            appendSets()
+           
+            itemPicture.src = sets.data.picture
+            itemName.textContent = sets.data.set
+            itemQuantity.textContent = sets.data.quantity
+            itemSummary.textContent = sets.data.summary
+            itemType.textContent = sets.data.type
+            itemBrand.textContent = sets.data.brand
+            itemPrice.textContent =sets.data.price
+            for (let b = 0; b < sets.data.length ; b++) {
+            itemUse.innerHTML += `${sets.data.use[b]}`}
+            for (let b = 0;  b< sets.data.length ; b++) {
+            itemCare.innerHTML +=`${sets.data.care[b]}`}
+            for (let b = 0;  b< sets.data.length ; b++) {
+            itemColours.innerHTML += `${sets.data.colours[b]}`
+            
+        }
+    }
+}
+)
+//    setDataList.forEach(sets => {
+//         appendSets(sets)
         
         
-        })});
+//         })});
         
-        getSets();
+//         getSets();
 
 
 // Clear populated data
@@ -218,5 +205,4 @@ const removeChildNodes = (details) => {
     while (details.firstChild) {
       details.removeChild(details.firstChild)
     }
-  }        
-  
+}
