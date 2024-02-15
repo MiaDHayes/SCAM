@@ -63,6 +63,16 @@ h2 {
    align-items: center;
    font-size: 26px;
    color: black;
+
+   cursor: pointer;
+}
+
+.container{
+    display: flex;
+    justify-content: center, space-evenly;
+}
+
+#ruffoniButton {
    padding: 0px 0px 20px 0px;
 }
 
@@ -78,4 +88,68 @@ h2 {
    align-items: center;
    font-size: 20px;
    color:black;
+   cursor: pointer;
 }
+
+
+#mauvielButton {
+   width: 150px;
+   height: 40px;
+   overflow: auto;
+   background: azure;
+   border-radius: 15px;
+   border-color: black;
+   margin-top: 20px;
+   justify-content: center;
+   align-items: center;
+   font-size: 20px;
+   color:black;
+   cursor: pointer;
+}
+
+#greepanButton{
+    width: 150px;
+    height: 40px;
+    overflow: auto;
+    background: azure;
+    border-radius: 15px;
+    border-color: black;
+    margin-top: 20px;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    color:black;    
+    cursor: pointer;
+}
+
+#allcladButton {
+    width: 150px;
+    height: 40px;
+    overflow: auto;
+    background: azure;
+    border-radius: 15px;
+    border-color: black;
+    margin-top: 20px;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    color:black;   
+    cursor: pointer;
+}
+
+#zwillingButton {
+
+    width: 150px;
+    height: 40px;
+    overflow: auto;
+    background: azure;
+    border-radius: 15px;
+    border-color: black;
+    margin-top: 20px;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    color:black;
+    cursor: pointer;
+}
+
