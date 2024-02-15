@@ -35,7 +35,30 @@ const getAllSets = async (req, res) => {
   }
 }
 
-const getSetDetails = async (req, res) => {
+// const getSetDetails = async (req, res) => {
+//   try {
+//     const { name } = req.params
+//     const regex = new RegExp(name, 'i')
+//     const set = await Set.findOne({ set: {$regex: regex} })
+    
+//     if (!set) {
+//       return res.status(404).json({ message: 'Sets not found' })
+//     }
+    
+//     const products = await Product.find({ set: set._id })
+    
+//     const setDetails = {
+//       set,
+//       products
+//     }
+
+//     res.json(setDetails)
+//   } catch (error) {
+//     return res.status(500).send(error.message)
+//   }
+// }
+
+const getBrandName = async (req, res) => {
   try {
     const { name } = req.params
     const regex = new RegExp(name, 'i')
@@ -44,15 +67,11 @@ const getSetDetails = async (req, res) => {
     if (!set) {
       return res.status(404).json({ message: 'Sets not found' })
     }
-    
-    const products = await Product.find({ set: set._id })
-    
-    const setDetails = {
-      set,
-      products
+    const setByBrand = {
+      set
     }
-
-    res.json(setDetails)
+    
+    res.json(setByBrand)
   } catch (error) {
     return res.status(500).send(error.message)
   }
@@ -74,8 +93,9 @@ const deleteSet = async (req, res) => {
 
 module.exports = {
   getAllSets,
-  getSetDetails,
+  // getSetDetails,
   createSet,
   updateSet,
-  deleteSet
+  deleteSet,
+  getBrandName
 }
